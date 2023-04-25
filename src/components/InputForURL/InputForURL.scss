@@ -1,0 +1,47 @@
+.InputForURL {
+  position: relative;
+  width: 100%;
+  max-width: 1110px;
+  height: 168px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: url('../../img/bg-shorten-desktop.svg') 50% 50% no-repeat #3a3053;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  input {
+    background-color: #fff;
+    display: block;
+    width: 800px;
+    height: 70px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-right: 20px;
+  }
+  button {
+    background-color: #9be2e2;
+    display: block;
+    width: 200px;
+    height: 70px;
+    color: #fff;
+    border-radius: 20px;
+  }
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}

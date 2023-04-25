@@ -1,0 +1,19 @@
+.Footer {
+  background-color: #232027;
+  color: #fff;
+  min-height: 80px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 40px;
+
+  a {
+    display: block;
+  }
+
+  .Links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

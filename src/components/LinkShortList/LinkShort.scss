@@ -1,0 +1,43 @@
+.LinkCard {
+  width: 100%;
+  height: 84px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 20px;
+  p {
+    display: block;
+  }
+  .CopyLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .ButtonCopy {
+      margin-left: 10px;
+      background-color: #9be2e2;
+      display: block;
+      width: 100px;
+      height: 35px;
+      color: #fff;
+      border-radius: 10px;
+    }
+    .ButtonCopied {
+      margin-left: 10px;
+      background-color: #3a3053;
+      display: block;
+      width: 100px;
+      height: 35px;
+      color: #fff;
+      border-radius: 10px;
+    }
+  }
+}
+
+.ShortList {
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+}
