@@ -1,12 +1,12 @@
-import { takeEvery, put, select } from 'redux-saga/effects';
-import { GET_SHORT_URL } from '../constant/constantShortAction';
+import { put, select, takeLatest } from 'redux-saga/effects';
+import { GET_SHORT_URL } from '../reducer/shortUrlReducer';
 import { getShortlURLFromApi } from '../../api/getShortAPI';
 import {
   setShortURLAction,
   errorGetShortURLAction,
-} from '../actions/actionsShort';
+} from '../reducer/shortUrlReducer';
 import type { IShortLinkResponce, IShortLinkError } from '../types/Types';
-import type { rootStore } from '..';
+import type { rootStore } from '../index';
 
 function isDataSuccess(
   data: IShortLinkResponce | IShortLinkError
@@ -15,18 +15,19 @@ function isDataSuccess(
 }
 
 function* getShortlURL() {
-  const url = select((state: rootStore) => state.reducerShortUrl.URL);
+  const url = select((state: rootStore) => state.shortUrl.URL);
   const urlString: string = yield url;
-  const data: IShortLinkResponce | IShortLinkError = yield getShortlURLFromApi(
+  const data = getShortlURLFromApi<IShortLinkResponce | IShortLinkError>(
     urlString
   );
-  if (isDataSuccess(data)) {
-    yield put(setShortURLAction(data.result));
+  const resultData: IShortLinkResponce | IShortLinkError = yield data;
+  if (isDataSuccess(resultData)) {
+    yield put(setShortURLAction(resultData.result));
   } else {
-    yield put(errorGetShortURLAction(data));
+    yield put(errorGetShortURLAction(resultData));
   }
 }
 
 export function* shortUrlWatcher() {
-  yield takeEvery(GET_SHORT_URL, getShortlURL);
+  yield takeLatest(GET_SHORT_URL, getShortlURL);
 }

@@ -1,17 +1,8 @@
-import {
-  GET_SHORT_URL,
-  SET_URL,
-  SET_SHORT_URL,
-  ERROR,
-} from '../constant/constantShortAction';
-
 export interface IStateResShortURL {
   URL: string;
   ListShortURL: IShortLinkData[];
-  error?: IShortLinkError;
+  error: IShortLinkError | null;
 }
-
-//////////////////////////////////////////////////
 
 export interface IShortLinkError {
   ok: boolean;
@@ -19,7 +10,6 @@ export interface IShortLinkError {
   error: string;
 }
 
-//////////////////////////////////////////////////
 export interface IShortLinkData {
   code: string;
   short_link: string;
@@ -35,27 +25,3 @@ export interface IShortLinkResponce {
   ok: boolean;
   result: IShortLinkData;
 }
-
-export type setUrlActionType = {
-  type: typeof SET_URL;
-  payload: string;
-};
-
-export type getShortUrlType = {
-  type: typeof GET_SHORT_URL;
-};
-
-export type setShortUrlType = {
-  type: typeof SET_SHORT_URL;
-  payload: IShortLinkData;
-};
-
-export type errorGetShortUrlType = {
-  type: typeof ERROR;
-  payload: IShortLinkError;
-};
-
-export type ActionsType =
-  | setUrlActionType
-  | setShortUrlType
-  | errorGetShortUrlType;

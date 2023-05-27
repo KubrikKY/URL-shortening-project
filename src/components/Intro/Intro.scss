@@ -1,0 +1,26 @@
+.Intro {
+  background: url('../../img/illustration-working.svg') 310px -40px no-repeat;
+  background-size: cover;
+  height: 600px;
+  margin-bottom: 100px;
+
+  .IntroText {
+    width: 100%;
+    max-width: 400px;
+    h1 {
+      font-size: 45px;
+      font-weight: 700;
+    }
+    p {
+      color: #9b9aa0;
+      margin-bottom: 30px;
+    }
+    button {
+      background-color: #9be2e2;
+      width: 150px;
+      height: 45px;
+      color: #fff;
+      border-radius: 15px;
+    }
+  }
+}

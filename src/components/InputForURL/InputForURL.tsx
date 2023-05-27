@@ -1,13 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../store/hook/hooksRedux';
 import './InputForURL.scss';
-import type { rootStore } from '../../store';
-import { setURLAction, getURLAction } from '../../store/actions/actionsShort';
+import {
+  setURLAction,
+  getURLAction,
+} from '../../store/reducer/shortUrlReducer';
+
 import { ChangeEvent, FormEvent } from 'react';
 
 const InputForURL = () => {
-  const URL = useSelector((state: rootStore) => state.reducerShortUrl.URL);
+  const [URL, error] = useAppSelector((state) => [
+    state.shortUrl.URL,
+    state.shortUrl.error?.error,
+  ]);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const setUrlHandler = (event: ChangeEvent<HTMLInputElement>): void => {
     dispatch(setURLAction(event.target.value));
@@ -27,10 +33,12 @@ const InputForURL = () => {
             placeholder="Shorten a link here..."
             value={URL}
             onChange={setUrlHandler}
+            className="shortUrlInput"
           />
           <button type="submit">Shorten It!</button>
         </label>
       </form>
+      {error && <span>{error}</span>}
     </div>
   );
 };

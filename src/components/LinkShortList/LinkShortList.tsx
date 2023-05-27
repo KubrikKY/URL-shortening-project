@@ -1,13 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../store/hook/hooksRedux';
 import LinkCard from './LinkCard/LinkCard';
-import { rootStore } from '../../store';
 import './LinkShort.scss';
 import { useState } from 'react';
 
 const LinkShortList = () => {
-  const shortLinks = useSelector(
-    (state: rootStore) => state.reducerShortUrl.ListShortURL
-  );
+  const shortLinks = useAppSelector((state) => state.shortUrl.ListShortURL);
 
   const [copiedButton, setCopiedButton] = useState<string>('');
 
