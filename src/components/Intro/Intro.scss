@@ -3,7 +3,9 @@
   background-size: cover;
   height: 600px;
   margin-bottom: 100px;
-
+  @media screen and (max-width: 750px) {
+    background-position: 80px 90px;
+  }
   .IntroText {
     width: 100%;
     max-width: 400px;

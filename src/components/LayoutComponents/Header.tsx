@@ -6,8 +6,8 @@ const Header = () => {
       <h1>Shortly</h1>
       {/* /////////////////////// */}
       <div className="LoginA">
-        <a>Login</a>
-        <a>Sign Up</a>
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
       </div>
       {/* /////////////////////////////////  */}
     </div>

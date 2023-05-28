@@ -16,7 +16,7 @@ const LinkCard: FC<PropsLinkCard> = ({
   copied,
   id,
 }) => {
-  const copyShortHandler = () => {
+  const copyShortHandler = (): void => {
     navigator.clipboard.readText().then((text) => {
       if (text !== shortLink) {
         navigator.clipboard.writeText(shortLink);
