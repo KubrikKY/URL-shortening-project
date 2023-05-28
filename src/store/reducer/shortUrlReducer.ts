@@ -21,7 +21,10 @@ const shortUrlSlice = createSlice({
 
     setShortURLAction(state, action: PayloadAction<IShortLinkData>) {
       state.error = null;
-      state.ListShortURL.push(action.payload);
+      if (state.ListShortURL.length > 4) {
+        state.ListShortURL.pop();
+      }
+      state.ListShortURL.unshift(action.payload);
     },
 
     errorGetShortURLAction(state, action: PayloadAction<IShortLinkError>) {
