@@ -1,4 +1,5 @@
 import '../LinkShort.scss';
+import { FC } from 'react';
 
 type PropsLinkCard = {
   shortLink: string;
@@ -8,13 +9,13 @@ type PropsLinkCard = {
   id: string;
 };
 
-const LinkCard = ({
+const LinkCard: FC<PropsLinkCard> = ({
   shortLink,
   originalLink,
   setCopiedButton,
   copied,
   id,
-}: PropsLinkCard) => {
+}) => {
   const copyShortHandler = () => {
     navigator.clipboard.readText().then((text) => {
       if (text !== shortLink) {

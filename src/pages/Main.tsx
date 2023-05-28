@@ -1,7 +1,6 @@
 import Intro from '../components/Intro/Intro';
 import InputForURL from '../components/InputForURL/InputForURL';
 import LinkShortList from '../components/LinkShortList/LinkShortList';
-import Statistics from '../components/Statistics/Statistics';
 import './Main.scss';
 
 const Main = () => {
@@ -10,7 +9,6 @@ const Main = () => {
       <Intro />
       <InputForURL />
       <LinkShortList />
-      <Statistics />
     </div>
   );
 };

@@ -10,7 +10,7 @@ const LinkShortList = () => {
 
   return (
     <div className="ShortList">
-      {shortLinks.map((shortLinkData: (typeof shortLinks)[number]) => {
+      {shortLinks.map((shortLinkData) => {
         const { original_link, full_short_link, code } = shortLinkData;
         let copied = false;
         if (copiedButton === code) {
