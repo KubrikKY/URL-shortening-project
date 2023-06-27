@@ -25,3 +25,5 @@ export interface IShortLinkResponce {
   ok: boolean;
   result: IShortLinkData;
 }
+
+export type ResponceType = IShortLinkResponce | IShortLinkError;

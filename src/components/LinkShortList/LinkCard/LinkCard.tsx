@@ -4,27 +4,16 @@ import { FC } from 'react';
 type PropsLinkCard = {
   shortLink: string;
   originalLink: string;
-  setCopiedButton: React.Dispatch<React.SetStateAction<string>>;
   copied: boolean;
-  id: string;
+  copy: (a: string) => void;
 };
 
 const LinkCard: FC<PropsLinkCard> = ({
   shortLink,
   originalLink,
-  setCopiedButton,
   copied,
-  id,
+  copy,
 }) => {
-  const copyShortHandler = (): void => {
-    navigator.clipboard.readText().then((text) => {
-      if (text !== shortLink) {
-        navigator.clipboard.writeText(shortLink);
-        setCopiedButton(id);
-      }
-    });
-  };
-
   return (
     <div className="LinkCard">
       <p>{originalLink}</p>
@@ -33,7 +22,7 @@ const LinkCard: FC<PropsLinkCard> = ({
         {copied ? (
           <button className="ButtonCopied">Copied!</button>
         ) : (
-          <button className="ButtonCopy" onClick={copyShortHandler}>
+          <button className="ButtonCopy" onClick={() => copy(shortLink)}>
             Copy
           </button>
         )}

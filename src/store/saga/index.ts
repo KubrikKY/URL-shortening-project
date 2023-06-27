@@ -5,22 +5,18 @@ import {
   setShortURLAction,
   errorGetShortURLAction,
 } from '../reducer/shortUrlReducer';
-import type { IShortLinkResponce, IShortLinkError } from '../types/Types';
+import type { IShortLinkResponce, ResponceType } from '../types/Types';
 import type { rootStore } from '../index';
 
-function isDataSuccess(
-  data: IShortLinkResponce | IShortLinkError
-): data is IShortLinkResponce {
+function isDataSuccess(data: ResponceType): data is IShortLinkResponce {
   return data.ok;
 }
 
 function* getShortlURL() {
   const url = select((state: rootStore) => state.shortUrl.URL);
   const urlString: string = yield url;
-  const data = call(() =>
-    getShortlURLFromApi<IShortLinkResponce | IShortLinkError>(urlString)
-  );
-  const resultData: IShortLinkResponce | IShortLinkError = yield data;
+  const data = call(() => getShortlURLFromApi<ResponceType>(urlString));
+  const resultData: ResponceType = yield data;
   if (isDataSuccess(resultData)) {
     yield put(setShortURLAction(resultData.result));
   } else {
